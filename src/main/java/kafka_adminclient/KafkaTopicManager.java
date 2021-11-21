@@ -80,22 +80,24 @@ public class KafkaTopicManager {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         KafkaTopicManager kafkaTopicManager = new KafkaTopicManager();
 
-        if ("create".equalsIgnoreCase(args[0])){
+        String command = args[0];
+
+        if ("create".equalsIgnoreCase(command)){
             KafkaTopicManager.createTopic(args[1], Integer.parseInt(args[2]), Short.parseShort(args[3]));
         }
-        else if ("list".equalsIgnoreCase(args[0])){
+        else if ("list".equalsIgnoreCase(command)){
             KafkaTopicManager.listTopic();
         }
-        else if ("describe".equalsIgnoreCase(args[0])){
+        else if ("describe".equalsIgnoreCase(command)){
             KafkaTopicManager.describeTopic(args[1]);
         }
-        else if ("describe-config".equalsIgnoreCase(args[0])){
+        else if ("describe-config".equalsIgnoreCase(command)){
             KafkaTopicManager.describeConfig(args[1]);
         }
-        else if ("alter-config".equalsIgnoreCase(args[0])){
+        else if ("alter-config".equalsIgnoreCase(command)){
             KafkaTopicManager.changeConfig(args[1], args[2], args[3]);
         }
-        else if ("delete".equalsIgnoreCase(args[0])){
+        else if ("delete".equalsIgnoreCase(command)){
             KafkaTopicManager.deleteTopic(args[1]);
         }
         else System.out.println("지원하지 않는 기능입니다.");
